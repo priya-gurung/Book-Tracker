@@ -1,0 +1,21 @@
+<%- include("partials/header") %>
+
+
+<% if (books.length === 0) { %>
+<p>No books added yet.</p>
+<% } else { %>
+
+<div class="book-grid">
+  <% books.forEach(book => { %>
+  <div class="book-card">
+    <h2><%= book.title %></h2>
+    <p><strong>Author:</strong> <%= book.author %></p>
+    <p><strong>Rating:</strong> <%= book.rating %>/5</p>
+    <img src="<%= book.cover_url %>" alt="Cover for <%= book.title %>" />
+    <p><%= book.notes %></p>
+    <p><em>Read on: <%= book.read_date.toDateString() %></em></p>
+  </div>
+  <% }) %>
+</div>
+
+<% } %> <% include("partials/footer") %>
